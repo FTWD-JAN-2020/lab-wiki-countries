@@ -2,30 +2,34 @@ import React, { Component } from 'react';
 
 class CountryDetails extends Component {
 
-
     findDetails = () => {
         console.log('country detail cca3:',this.props.match.params.hippopotamus, this.props.countries)
         let theCountry = this.props.countries.find(eachCountry => {
             return eachCountry.cca3 === this.props.match.params.hippopotamus
         })
         console.log(theCountry)
-        
+        return theCountry; 
     }
 
-
+    twoPlusTwo = () => {
+        return 4
+    }
 
     render() {
+        let theCountry = this.findDetails()
+        console.log(theCountry)
+
         return (
+
             <div className="col-7">
 
-            {this.findDetails()}
-            <h1>France</h1>
+            <h1>{theCountry.name.common}</h1>
             <table className="table">
               <thead></thead>
               <tbody>
                 <tr>
                   <td>Capital</td>
-                  <td>Paris</td>
+                  <td>{theCountry.capital}</td>
                 </tr>
                 <tr>
                   <td>Area</td>
